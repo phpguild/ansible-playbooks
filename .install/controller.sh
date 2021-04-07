@@ -5,7 +5,7 @@ ANSIBLE_HOME="/home/${ANSIBLE_USER}"
 
 if ! id -u "${ANSIBLE_USER}" >/dev/null 2>&1; then
   sudo adduser "${ANSIBLE_USER}"
-  visudo
+  sudo sh -c "export EDITOR=vim; visudo"
 fi
 
 sudo su - "${ANSIBLE_USER}"

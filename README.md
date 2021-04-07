@@ -2,6 +2,14 @@
 
 ## Controller Node
 
+### Installation
+
+    sh -c "$(wget https://raw.githubusercontent.com/phpguild/ansible-playbooks/main/.install/controller.sh -O -)"
+
+### Edit /etc/sudoers
+
+    ansible ALL=(ALL)     NOPASSWD: ALL
+
 ### Install Ansible
 
 https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
@@ -22,45 +30,17 @@ Edit `/etc/ansible/hosts`
     ip2
     ...
 
-### Configure user
-
-Create user
-
-    sudo adduser ansible
-
-Granted user
-
-    visudo
-    ansible      ALL=(ALL)       NOPASSWD: ALL
-
-Create SSH key
-
-    sudo su - ansible
-    ssh-keygen -t rsa -b 4096 -C "ansible"
-    cat /home/ansible/.ssh/id_rsa.pub
-
 ## Target Node
 
-### Configure user
+### Installation
 
-Create user
+    sh -c "$(wget https://raw.githubusercontent.com/phpguild/ansible-playbooks/main/.install/target.sh -O -)"
 
-    sudo adduser ansible
+### Edit /etc/sudoers
 
-Granted user
+    ansible ALL=(ALL)     NOPASSWD: ALL
 
-    visudo
-    ansible      ALL=(ALL)       NOPASSWD: ALL
-
-Create SSH authorized keys
-
-    sudo su - ansible
-    cd /home/ansible
-    mkdir .ssh
-    touch .ssh/authorized_keys
-    chmod 600 .ssh/authorized_keys
-
-Authorize Controller Node
+### Authorize Controller Node
 
     echo "{controller_id_rsa.pub}" >> /home/ansible/.ssh/authorized_keys
 
