@@ -3,8 +3,6 @@
 ANSIBLE_USER="ansible"
 ANSIBLE_HOME="/home/${ANSIBLE_USER}"
 
-apt install -y visudo
-
 if ! id -u "${ANSIBLE_USER}" >/dev/null 2>&1; then
   sudo adduser "${ANSIBLE_USER}"
   sudo sh -c "export EDITOR=vim; visudo"
