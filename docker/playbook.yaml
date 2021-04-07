@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: yes
+  vars_files:
+    - vars/default.yaml
+  tasks:
+    - name: install nginx
+      import_tasks: ../tasks/nginx/playbook.yaml
+    - name: install git
+      apt:
+        name: git
+        update_cache: yes
+    - name: install vim
+      apt:
+        name: vim
+        update_cache: yes
+

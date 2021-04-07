@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: yes
+  vars_files:
+    - vars/default.yaml
+  tasks:
+    - name: install nginx
+      apt:
+        name: nginx
+        update_cache: yes
