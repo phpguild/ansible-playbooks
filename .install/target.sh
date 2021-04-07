@@ -10,7 +10,7 @@ fi
 
 sudo su - "${ANSIBLE_USER}"
 if [ ! -f "${ANSIBLE_HOME}/.ssh/authorized_keys" ]; then
-  mkdir "${ANSIBLE_HOME}/.ssh"
+  mkdir -vp "${ANSIBLE_HOME}/.ssh"
   touch "${ANSIBLE_HOME}/.ssh/authorized_keys"
-  chmod 600 "${ANSIBLE_HOME}/.ssh/authorized_keys"
+  chmod -v 600 "${ANSIBLE_HOME}/.ssh/authorized_keys"
 fi
